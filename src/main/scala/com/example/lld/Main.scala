@@ -1,16 +1,15 @@
 package com.example.lld
 
 import com.google.inject.Guice
-import com.example.lld.di.AppModule
-import com.example.lld.model.{Movie, MovieId}
-import com.example.lld.service.ShowService
+import com.example.lld.di.Module
 
 object Main extends App {
-  val injector    = Guice.createInjector(new AppModule)
-  val showService = injector.getInstance(classOf[ShowService])
+  private val injector    = Guice.createInjector(new Module)
 
-  val movie = Movie(title = "Avatar", durationMin = 162) // id auto‑generated
-  showService.addMovie(movie)
+  private def test(): Unit = {
+    //val showService = injector.getInstance(classOf[ShowService])
 
-  println(showService.listMovies())
+  }
+
+  test()
 }
